@@ -1,7 +1,7 @@
 import random
 
 children = {1: 'Nacho', 2: 'Elena', 3: 'Alonso', 4: 'Julia', 5: 'Irene'}
-pairs = ['Pablo & MJ', 'Andres & Julia', 'Andres & Ana', 'Clara & Nacho', 'Jaime & Marina']
+pairs = ['Pablo & MJ', 'Clara & Nacho', 'Jaime & Marina', 'Andres & Julia', 'Andres & Ana']
 exclusions = {'Pablo & MJ': ['Elena', 'Irene'], 'Clara & Nacho': ['Nacho', 'Alonso'], 'Jaime & Marina': ['Julia'], 'Andres & Julia': [], 'Andres & Ana': []}
 results = {}
 
@@ -14,17 +14,17 @@ def run():
     for pair in pairs:
         winner = throwdice()
         while winner in winners:
-            #print (winner, 'is already selected, throwing the dice again')
+            print (winner, 'is already selected, throwing the dice again')
             winner = throwdice()
         while winner in exclusions[pair]:
-            #print (winner, 'is excluded for pair', pair, ', throwing the dice again')
+            print (winner, 'is excluded for pair', pair, ', throwing the dice again')
             winner = throwdice()
 
         winners.append(winner)
-        #print(pair, " -> ", winner)
+        print('==>', pair, ' assigned to', winner)
         results.update({pair: winner})
 
-    print('=>>', winners)
+    #print('=>>', winners)
     return tuple(winners)
 
 #combined = set()
