@@ -37,6 +37,8 @@ class Tests(unittest.TestCase):
         for iter in range(number_of_iterations):
             results = raffle.run_children()
             self.assertIn('Andres & Ana', results)
+            self.assertIn('Andres & Ana another', results)
+            self.assertNotIn('Andres & Ana extra', results)
 
 if __name__ == '__main__':
     unittest.main()

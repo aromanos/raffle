@@ -58,8 +58,12 @@ def run_children():
         print(f'==> {pair} assigned to {winner}')
         results.update({pair: winner})
 
-    # One extra random pair gets a second child assigned
+    # One extra random pair excluding Ana & Andres gets a second child assigned
     extra_pair = throwdice_pairs()
+    while extra_pair == 'Andres & Ana':
+        print(f'{winner} cannot be Andres & Ana, throwing the dice again')
+        extra_pair = throwdice_pairs()
+
     winner = throwdice_children()
     while winner in winners:
         print(f'{winner} is already assigned, throwing the dice again')
@@ -73,12 +77,8 @@ def run_children():
     print(f'==> {extra_pair} extra assigned to {winner}')
     results.update({extra_pair + ' extra': winner})
 
-    # Another extra random pair gets a second child assigned
-    another_extra_pair = throwdice_pairs()
-    while another_extra_pair == extra_pair:
-        print(f'{another_extra_pair} is already assigned as extra, throwing the dice again')
-        another_extra_pair = throwdice_pairs()
-
+    # Ana & Andres always get a second child assigned
+    another_extra_pair = 'Andres & Ana'
     winner = throwdice_children()
     while winner in winners:
         print(f'{winner} is already assigned, throwing the dice again')
