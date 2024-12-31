@@ -97,8 +97,8 @@ def main():
     adults_results = run_adults()
     print(f'==> Adults Results: {adults_results}')
 
-    children_results = run_children()
-    print(f'==> Children Results: {children_results}')
+    #children_results = run_children()
+    #print(f'==> Children Results: {children_results}')
 
 if __name__ == '__main__':
     main()
