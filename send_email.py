@@ -1,13 +1,16 @@
 import smtplib
+import os
 
 # creates SMTP session
-s = smtplib.SMTP('smtp.gmail.com', 587)
+s = smtplib.SMTP('smtp.protonmail.com', 587)
 
 # start TLS for security
 s.starttls()
 
 # Authentication
-s.login("aromanos@gmail.com", "sender_email_id_password")
+# Use an App Password stored in an environment variable for security
+email_password = os.getenv('PROTONMAIL_APP_PASSWORD')
+s.login("aromanos@gmail.com", email_password)
 
 # message to be sent
 message = "Message_you_need_to_send"
