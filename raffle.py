@@ -24,21 +24,35 @@ def throwdice_pairs():
 
 def run_adults():
     results = {}
-    winners = []
-    # Loop through Adults, each will get another adult assigned
-    for adult in adults:
-        winner = throwdice_adults()
-        while winner in winners:
-            print(f'{winner} is already assigned, throwing the dice again')
-            winner = throwdice_adults()
-        while winner in adults_exclusions[adult]:
-            print(f'{winner} is excluded for adult {adult}, throwing the dice again')
-            winner = throwdice_adults()
+    winners = set()  # Use a set for faster membership checks
 
-        winners.append(winner)
-        print(f'==> {adult} assigned to {winner}')
-        results.update({adult: winner})
+    for adult in adults:
+        max_retries = 100  # Prevent infinite loops
+        retries = 0
+
+        while True:
+            winner = throwdice_adults()
+            retries += 1
+
+            if retries > max_retries:
+                raise RuntimeError(f"Unable to find a valid winner for {adult} after {max_retries} retries")
+
+            if winner in winners:
+                print(f"{winner} is already assigned, throwing the dice again")
+                continue
+
+            if winner in adults_exclusions.get(adult, []):
+                print(f"{winner} is excluded for adult {adult}, throwing the dice again")
+                continue
+
+            # Valid winner found
+            winners.add(winner)
+            print(f"==> {adult} assigned to {winner}")
+            results[adult] = winner
+            break  # Exit the loop and move to the next adult
+
     return results
+
 
 def run_children():
     results = {}
