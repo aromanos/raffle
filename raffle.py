@@ -1,14 +1,14 @@
 import random
 
 # Adults
-adults = ['Andres', 'Pablo', 'Clara', 'Jaime', 'Ana', 'MJ', 'Nacho', 'Marina']
-adults_exclusions = {'Pablo': ['Pablo', 'MJ'], 'Clara': ['Clara', 'Nacho'], 'Jaime': ['Jaime', 'Marina'], 'Andres': ['Andres', 'Ana'],
-                        'MJ': ['MJ', 'Pablo'], 'Nacho': ['Nacho', 'Clara'], 'Marina': ['Marina', 'Jaime'], 'Ana': ['Ana', 'Andres']}
+adults = ['Andres', 'Pablo', 'Clara', 'Jaime', 'Ana', 'MJ', 'Nacho', ]
+adults_exclusions = {'Pablo': ['Pablo', 'MJ'], 'Clara': ['Clara', 'Nacho'], 'Jaime': ['Jaime'], 'Andres': ['Andres', 'Ana'],
+                        'MJ': ['MJ', 'Pablo'], 'Nacho': ['Nacho', 'Clara'], 'Ana': ['Ana', 'Andres']}
 
 # Pairs & Children
 children = {1: 'Nacho', 2: 'Elena', 3: 'Alonso', 4: 'Julia', 5: 'Irene', 6: 'Gonzalo'}
-pairs = ['Pablo & MJ', 'Clara & Nacho', 'Jaime & Marina', 'Andres & Ana']
-children_exclusions = {'Pablo & MJ': ['Elena', 'Irene'], 'Clara & Nacho': ['Nacho', 'Alonso'], 'Jaime & Marina': ['Julia', 'Gonzalo'], 'Andres & Ana': []}
+pairs = ['Pablo & MJ', 'Clara & Nacho', 'Jaime', 'Andres & Ana']
+children_exclusions = {'Pablo & MJ': ['Elena', 'Irene'], 'Clara & Nacho': ['Nacho', 'Alonso'], 'Jaime': ['Julia', 'Gonzalo'], 'Andres & Ana': []}
 
 def throwdice_adults():
     dice = random.randint(0, 7)
