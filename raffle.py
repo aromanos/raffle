@@ -11,7 +11,7 @@ pairs = ['Pablo & MJ', 'Clara & Nacho', 'Jaime', 'Andres & Ana']
 children_exclusions = {'Pablo & MJ': ['Elena', 'Irene'], 'Clara & Nacho': ['Nacho', 'Alonso'], 'Jaime': ['Julia', 'Gonzalo'], 'Andres & Ana': []}
 
 def throwdice_adults():
-    dice = random.randint(0, 7)
+    dice = random.randint(0, len(adults) - 1)
     return adults[dice]
 
 def throwdice_children():
