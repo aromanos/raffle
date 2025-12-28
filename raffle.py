@@ -2,7 +2,7 @@ import random
 
 # Adults
 adults = ['Andres', 'Pablo', 'Clara', 'Jaime', 'Ana', 'MJ', 'Nacho', ]
-adults_exclusions = {'Pablo': ['Pablo', 'MJ'], 'Clara': ['Clara', 'Nacho'], 'Jaime': ['Jaime'], 'Andres': ['Andres', 'Ana'],
+adults_exclusions = {'Pablo': ['Pablo', 'MJ'], 'Clara': ['Clara', 'Nacho', 'Andres', 'Jaime', 'Ana', 'MJ'], 'Jaime': ['Jaime'], 'Andres': ['Andres', 'Ana'],
                         'MJ': ['MJ', 'Pablo'], 'Nacho': ['Nacho', 'Clara'], 'Ana': ['Ana', 'Andres']}
 
 # Pairs & Children
